@@ -1,4 +1,4 @@
-import 'package:baloon_app/controller/buttons.dart';
+import 'package:baloon_app/controller/navigation.dart';
 import 'package:baloon_app/models/image_model.dart';
 import 'package:baloon_app/models/policy_model.dart';
 import 'package:flutter/material.dart';
@@ -14,6 +14,9 @@ class PolicyPage extends StatefulWidget {
 
 class _PolicyPageState extends State<PolicyPage> {
   final AuthController _authController = AuthController();
+  void _claimsRequest() {
+    _authController.claimsButton(context);
+  }
 
   final PageController _pageController = PageController(viewportFraction: 0.99);
   int _currentPage = 0;
@@ -194,7 +197,7 @@ class _PolicyPageState extends State<PolicyPage> {
 
               SizedBox(height: 20.h),
               ElevatedButton(
-                onPressed: () => _authController.claimsButton(context),
+                onPressed: _claimsRequest,
 
                 style: TextButton.styleFrom(
                   shape: RoundedRectangleBorder(

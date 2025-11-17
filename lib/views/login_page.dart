@@ -1,4 +1,4 @@
-import 'package:baloon_app/controller/buttons.dart';
+import 'package:baloon_app/controller/navigation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:baloon_app/models/image_model.dart';

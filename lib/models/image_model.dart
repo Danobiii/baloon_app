@@ -9,4 +9,7 @@ class AppImages {
   static const String homeLogo = "assets/images/home.png";
   static const String vectorLogo = "assets/images/Vector.png";
   static const String telephoneLogo = "assets/images/telephone.png";
+  static const String camera = "assets/images/camera.png";
+  static const String document = "assets/images/document.png";
+  static const String video = "assets/images/video.png";
 }

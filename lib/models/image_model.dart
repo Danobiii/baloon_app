@@ -12,4 +12,6 @@ class AppImages {
   static const String camera = "assets/images/camera.png";
   static const String document = "assets/images/document.png";
   static const String video = "assets/images/video.png";
+  static const String galleryLogo = "assets/images/gallery.png";
+  static const String curacelLogo = "assets/images/curacell.png";
 }

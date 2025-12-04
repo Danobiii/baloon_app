@@ -1,7 +1,10 @@
 import 'package:baloon_app/views/accident_infoscreen.dart';
+import 'package:baloon_app/views/claims_sent.dart';
+import 'package:baloon_app/views/picture_uploadscreen.dart';
 import 'package:baloon_app/views/policy.dart';
 import 'package:baloon_app/views/third_party.dart';
 import 'package:baloon_app/views/upload.dart';
+import 'package:baloon_app/views/verify_uploads.dart';
 import 'package:flutter/material.dart';
 import 'package:baloon_app/views/process_claims.dart';
 
@@ -51,5 +54,34 @@ class AuthController {
 
   void backToThirdPartyScreen(BuildContext context) {
     Navigator.pop(context);
+  }
+
+  void toPictureUploadScreen(BuildContext context) {
+    Navigator.push(
+      context,
+      MaterialPageRoute(builder: (context) => PictureUploadscreen()),
+    );
+  }
+
+  void backToUploadScreen(BuildContext context) {
+    Navigator.pop(context);
+  }
+
+  void toVerifyUploadsScreen(BuildContext context) {
+    Navigator.push(
+      context,
+      MaterialPageRoute(builder: (context) => VerifyUploads()),
+    );
+  }
+
+  void navigateBackToUploadScreen(BuildContext context) {
+    Navigator.pop(context);
+  }
+
+  void navigateToClaimsSentPage(BuildContext context) {
+    Navigator.push(
+      context,
+      MaterialPageRoute(builder: (context) => ClaimSentPage()),
+    );
   }
 }

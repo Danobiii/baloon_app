@@ -1,4 +1,4 @@
-import 'package:baloon_app/controller/navigation.dart';
+import 'package:baloon_app/controller/navigation_controller.dart';
 import 'package:baloon_app/widgets/form_fields.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -98,17 +98,7 @@ class _ThirdPartyState extends State<ThirdParty> {
                 ],
               ),
             ),
-            Container(
-              width: 100.w,
-              decoration: BoxDecoration(
-                border: Border(
-                  bottom: BorderSide(color: Color.fromRGBO(31, 18, 72, 1)),
-                ),
-              ),
-              child: Row(
-                children: [Icon(Icons.add, size: 20), Text("Add Another")],
-              ),
-            ),
+            Add(iconData: Icons.add, iconDesc: 'Add Another'),
             SizedBox(height: 20.h),
             Center(
               child: ElevatedButton(
@@ -137,6 +127,31 @@ class _ThirdPartyState extends State<ThirdParty> {
           ],
         ),
       ),
+    );
+  }
+}
+
+class Add extends StatelessWidget {
+  final IconData iconData;
+  final String iconDesc;
+  final double? width;
+  const Add({
+    super.key,
+    required this.iconData,
+    required this.iconDesc,
+    this.width,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      width: width ?? 100.w,
+      decoration: BoxDecoration(
+        border: Border(
+          bottom: BorderSide(color: Color.fromRGBO(31, 18, 72, 1)),
+        ),
+      ),
+      child: Row(children: [Icon(iconData, size: 20), Text(iconDesc)]),
     );
   }
 }

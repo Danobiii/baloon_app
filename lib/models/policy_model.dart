@@ -1,5 +1,4 @@
 import 'dart:ui';
-import 'package:baloon_app/views/process_claims.dart';
 import 'package:baloon_app/models/image_model.dart';
 import 'package:flutter/material.dart';
 

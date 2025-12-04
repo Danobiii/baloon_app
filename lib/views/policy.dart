@@ -1,4 +1,4 @@
-import 'package:baloon_app/controller/navigation.dart';
+import 'package:baloon_app/controller/navigation_controller.dart';
 import 'package:baloon_app/models/image_model.dart';
 import 'package:baloon_app/models/policy_model.dart';
 import 'package:flutter/material.dart';

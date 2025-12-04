@@ -1,31 +1,29 @@
-import 'package:baloon_app/controller/navigation_controller.dart';
-import 'package:baloon_app/models/image_model.dart';
 import 'package:baloon_app/views/third_party.dart';
 import 'package:baloon_app/widgets/reusable_uploadwidget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:baloon_app/controller/upload_controller.dart';
-// import 'package:baloon_app/views/verify_uploads.dart';
+import 'package:baloon_app/controller/navigation_controller.dart';
 
-class Upload extends StatefulWidget {
-  const Upload({super.key});
+import 'package:baloon_app/models/image_model.dart';
+
+class VerifyUploads extends StatefulWidget {
+  const VerifyUploads({super.key});
 
   @override
-  State<Upload> createState() => _UploadState();
+  State<VerifyUploads> createState() => _VerifyUploadsState();
 }
 
-class _UploadState extends State<Upload> {
-  // final UploadController _uploadController = UploadController();
-
-  final AuthController _authController = AuthController();
+class _VerifyUploadsState extends State<VerifyUploads> {
   final UploadController controller = UploadController();
+  final AuthController _authController = AuthController();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         leading: BackButton(
           onPressed: () {
-            _authController.backToThirdPartyScreen(context);
+            _authController.navigateBackToUploadScreen(context);
           },
         ),
         actions: [
@@ -73,6 +71,7 @@ class _UploadState extends State<Upload> {
                   "Upload pictures of the damaged vehicle and the surroundings",
               iconPath: AppImages.camera,
               fileType: controller.imageName,
+              uploadController: controller,
               onTapFunction: () async {
                 await controller.openCamera();
                 setState(() {});
@@ -85,6 +84,7 @@ class _UploadState extends State<Upload> {
                   "Take a video recording of the car showing the damaged parts",
               iconPath: AppImages.video,
               fileType: controller.videoName,
+              uploadController: controller,
               onTapFunction: () async {
                 await controller.openCameraForVideo();
                 setState(() {});
@@ -94,6 +94,7 @@ class _UploadState extends State<Upload> {
               title: "Repair quote",
               description: "Send us an estimated cost of repairs.",
               iconPath: AppImages.document,
+              uploadController: controller,
               fileType: controller.fileName,
               onTapFunction: () async {
                 await controller.pickDocument();
@@ -108,7 +109,7 @@ class _UploadState extends State<Upload> {
               iconDesc: "Upload other Documents",
               width: 175.w,
             ),
-            SizedBox(height: 100.h),
+            SizedBox(height: 50.h),
             Center(
               child: ElevatedButton(
                 style: ElevatedButton.styleFrom(
@@ -119,7 +120,7 @@ class _UploadState extends State<Upload> {
                   ),
                 ),
                 onPressed: () {
-                  _authController.toPictureUploadScreen(context);
+                  _authController.navigateToClaimsSentPage(context);
                 },
                 child: Text(
                   "Submit",

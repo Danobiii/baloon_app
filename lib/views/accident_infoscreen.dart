@@ -1,7 +1,8 @@
-import 'package:baloon_app/controller/navigation.dart';
+import 'package:baloon_app/controller/navigation_controller.dart';
 import 'package:baloon_app/widgets/form_fields.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:baloon_app/controller/date_controller.dart';
 
 class AccidentInfoscreen extends StatefulWidget {
   const AccidentInfoscreen({super.key});
@@ -11,6 +12,9 @@ class AccidentInfoscreen extends StatefulWidget {
 }
 
 class _AccidentInfoscreenState extends State<AccidentInfoscreen> {
+  final DateController _dateController = DateController();
+  final TextEditingController _dateTextController = TextEditingController();
+
   final _formKey = GlobalKey<FormState>();
   final AuthController _authController = AuthController();
   @override
@@ -79,6 +83,17 @@ class _AccidentInfoscreenState extends State<AccidentInfoscreen> {
                             text: "Date of Accident",
                             labelText: "Date",
                             validatorMessage: "Please select Date",
+                            keyboard: true,
+                            controller: _dateTextController,
+                            date: IconButton(
+                              onPressed: () {
+                                _dateController.pickDate(
+                                  context,
+                                  _dateTextController,
+                                );
+                              },
+                              icon: Icon(Icons.calendar_month),
+                            ),
                           ),
                         ),
                         SizedBox(width: 30.w),
